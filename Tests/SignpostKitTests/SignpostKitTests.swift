@@ -13,7 +13,7 @@ struct SignpostTests {
 
     @Test func asyncMeasureReturnsResult() async {
         let result = await signpost.measure("Async") {
-            try? await Task.sleep(for: .milliseconds(10))
+            try? await Task.sleep(nanoseconds: 10_000_000)
             return "done"
         }
         #expect(result == "done")
